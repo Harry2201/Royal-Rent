@@ -1,0 +1,258 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────
+   ROYALE RENT — Design System
+   Direction: Cinematic editorial luxury
+   Fonts: Syne (display) · DM Sans (body)
+   ───────────────────────────────────────────── */
+
+@theme {
+  --color-royal-bg:       #f7f7f5;
+  --color-royal-bg-soft:  #ffffff;
+  --color-royal-card:     #ffffff;
+  --color-royal-cream:    #111111;
+  --color-royal-muted:    #6b6b6b;
+  --color-royal-accent:   #2b2b2b;
+  --color-royal-gold:     #111111;
+  --color-royal-border:   #e5e5e5;
+  --color-royal-ink:      #0a0a0a;
+  --color-royal-charcoal: #111111;
+  --color-royal-offwhite: #f7f7f5;
+
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply m-0 min-h-screen overflow-x-hidden font-body text-royal-cream antialiased;
+    background-color: #ffffff;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  body.no-scroll { overflow: hidden; }
+  img { @apply block max-w-full; }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold tracking-tight text-royal-cream;
+    line-height: 1.1;
+  }
+}
+
+@layer components {
+
+  /* ── Layout ── */
+  .container-editorial,
+  .container-immersive {
+    @apply mx-auto w-full max-w-[1360px] px-5 md:px-8 lg:px-14;
+  }
+
+  .section-spacing { @apply py-20 md:py-28 lg:py-32; }
+
+  /* ── Typography ── */
+  .heading-display {
+    @apply font-display font-semibold tracking-tight text-royal-cream;
+    font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+
+  .heading-display-xl {
+    @apply font-display font-semibold tracking-tight text-royal-cream;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .heading-section {
+    @apply font-display text-3xl font-semibold tracking-tight text-royal-cream md:text-4xl;
+    letter-spacing: -0.025em;
+  }
+
+  .heading-caption {
+    @apply font-display text-xl font-semibold tracking-tight text-royal-cream;
+    letter-spacing: -0.02em;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed text-royal-muted;
+  }
+
+  .text-label {
+    @apply text-[10px] font-medium uppercase tracking-[0.18em] text-royal-muted;
+  }
+
+  /* ── Cards & Surfaces ── */
+  .card-surface {
+    @apply border border-royal-border bg-royal-card;
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-500 hover:shadow-[0_8px_48px_-8px_rgba(0,0,0,0.12)];
+  }
+
+  /* ── Forms ── */
+  .input-field {
+    @apply w-full border-0 border-b border-royal-border bg-transparent px-0 py-3 text-sm text-black transition-colors placeholder:text-gray-400 focus:border-black focus:outline-none;
+
+    caret-color: black;
+  
+  }
+
+  .input-field-box {
+    @apply w-full rounded-none border border-royal-border bg-royal-bg-soft px-4 py-3.5 text-sm text-royal-cream transition-colors placeholder:text-royal-muted/60 focus:border-royal-cream focus:outline-none;
+  }
+
+  /* ── Dividers ── */
+  .divider { @apply h-px w-full bg-royal-border; }
+
+  /* ── Pages ── */
+  .page-canvas      { @apply min-h-screen bg-royal-bg-soft; }
+  .page-canvas-muted { @apply min-h-screen bg-royal-bg; }
+
+  /* ── Editorial image masks ── */
+  .img-portrait {
+    @apply aspect-[3/4] w-full object-cover;
+  }
+
+  .img-landscape {
+    @apply aspect-[16/10] w-full object-cover;
+  }
+
+  /* ── Marquee ── */
+  .marquee-track {
+    display: flex;
+    gap: 5rem;
+    animation: marquee 32s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── Stats ── */
+  .stat-number {
+    @apply font-display font-semibold text-royal-cream;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  /* ── Pill / Tag ── */
+  .pill {
+    @apply inline-flex items-center gap-1.5 border border-royal-border px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-royal-muted;
+  }
+
+  /* ── Collections rail ── */
+  .collections-rail {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+  }
+
+  .collections-rail::-webkit-scrollbar { display: none; }
+
+  .collections-rail-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  /* ── Cinematic section transitions ── */
+  .cinematic-section {
+    @apply relative overflow-hidden;
+  }
+
+  /* legacy compat */
+  .glass-royal { @apply border border-royal-border bg-royal-card; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   HOMEPAGE CINEMATIC ADDITIONS
+   ─────────────────────────────────────────────  */
+
+@layer components {
+
+  /* ── Insight / manifesto type ── */
+  .heading-manifesto {
+    @apply font-display font-semibold text-royal-cream;
+    font-size: clamp(2.5rem, 6vw, 5.25rem);
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+  }
+
+  /* ── Owner story cards ── */
+  .story-card-hover {
+    @apply transition-all duration-700;
+  }
+  .story-card-hover:hover .story-card-img {
+    transform: scale(1.04);
+  }
+  .story-card-img {
+    @apply transition-transform duration-700;
+  }
+
+  /* ── Stat number — ultra large ── */
+  .stat-editorial {
+    @apply font-display font-semibold text-royal-cream;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  /* ── Brand statement type ── */
+  .heading-brand-statement {
+    @apply font-display font-semibold;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  /* ── HowItWorks editorial steps ── */
+  .how-step-img {
+    @apply overflow-hidden;
+    aspect-ratio: 4 / 5;
+  }
+  .how-step-img img {
+    @apply h-full w-full object-cover transition-transform duration-700;
+  }
+  .how-step-img:hover img {
+    transform: scale(1.03);
+  }
+}
+
+  /* ── Explore page grid ── */
+  .marketplace-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .marketplace-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (min-width: 1280px) {
+    .marketplace-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-8 lg:px-14;
+  }

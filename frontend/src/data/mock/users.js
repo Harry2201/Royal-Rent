@@ -1,0 +1,143 @@
+import { ROLES } from '../../utils/constants';
+
+// data/mock/users.js
+// Royale Rent — demo accounts + enriched owner profiles
+
+export const USERS = [
+  {
+    id: 'user-1',
+    name: 'Riya Sharma',
+    email: 'customer@royalerent.com',
+    password: 'password123',
+    role: 'customer',
+    city: 'Bengaluru',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80',
+    joinedYear: 2023,
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-1',
+    name: 'Avantika Mehta',
+    email: 'owner@royalerent.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Mumbai',
+    avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80',
+    joinedYear: 2022,
+    bio: 'Collects contemporary bridal silhouettes and modern reception wear. Every piece in my wardrobe has a story — a wedding in Alibaug, a reception in Juhu, a mehendi in Bandra.',
+    styleNote: 'Bridal · Reception · Cocktail',
+    rentalsCompleted: 24,
+    responseTime: 'Within 2 hours',
+    verified: true,
+    occasionsFocus: ['Bridal', 'Reception', 'Cocktail'],
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-2',
+    name: 'Priya Nair',
+    email: 'priya@example.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Chennai',
+    avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&q=80',
+    joinedYear: 2022,
+    bio: 'South Indian wedding aesthetics meet contemporary couture. I invest in pieces that photograph beautifully under both natural light and mandap lighting.',
+    styleNote: 'Bridal · Festive · Temple',
+    rentalsCompleted: 18,
+    responseTime: 'Within 4 hours',
+    verified: true,
+    occasionsFocus: ['Bridal', 'Festive', 'Temple'],
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-3',
+    name: 'Sneha Kapoor',
+    email: 'sneha@example.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Delhi',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80',
+    joinedYear: 2021,
+    bio: 'Delhi girl with a serious Sabyasachi problem. I rent pieces from my personal collection — mostly reception and cocktail — that I wore to weddings across Rajasthan and the hills.',
+    styleNote: 'Gowns · Reception · Indo-Western',
+    rentalsCompleted: 41,
+    responseTime: 'Within 1 hour',
+    verified: true,
+    occasionsFocus: ['Reception', 'Cocktail', 'Indo-Western'],
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-4',
+    name: 'Ishaan Verma',
+    email: 'ishaan@example.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Jaipur',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80',
+    joinedYear: 2023,
+    bio: 'Groom wear specialist. I curate sherwanis and bandhgalas for the modern Indian man — pieces that work for destination weddings in Udaipur as well as garden ceremonies in Gurugram.',
+    styleNote: 'Sherwani · Bandhgala · Groom',
+    rentalsCompleted: 15,
+    responseTime: 'Within 3 hours',
+    verified: true,
+    occasionsFocus: ['Groom', 'Sangeet', 'Baraat'],
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-5',
+    name: 'Meera Pillai',
+    email: 'meera@example.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Hyderabad',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&q=80',
+    joinedYear: 2022,
+    bio: 'I build a wardrobe the way I build a library — slowly, with intent. Every piece I own has earned its place. My collection leans festive and rich: silks, zari, jewel tones.',
+    styleNote: 'Saree · Festive · Silk',
+    rentalsCompleted: 29,
+    responseTime: 'Same day',
+    verified: true,
+    occasionsFocus: ['Festive', 'Bridal', 'Puja'],
+    wishlist: [],
+  },
+
+  {
+    id: 'owner-6',
+    name: 'Arjun Singhania',
+    email: 'arjun@example.com',
+    password: 'password123',
+    role: 'owner',
+    city: 'Mumbai',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
+    joinedYear: 2023,
+    bio: 'Menswear collector with a weakness for Anita Dongre and Raw Mango bandhgalas. I believe grooms deserve to look considered, not just dressed.',
+    styleNote: 'Bandhgala · Indo-Western · Modern',
+    rentalsCompleted: 11,
+    responseTime: 'Within 6 hours',
+    verified: false,
+    occasionsFocus: ['Groom', 'Reception', 'Cocktail'],
+    wishlist: [],
+  },
+
+  {
+    id: 'admin-1',
+    name: 'Royale Admin',
+    email: 'admin@royalerent.com',
+    password: 'password123',
+    role: 'admin',
+    city: 'Bengaluru',
+    avatar: null,
+    joinedYear: 2021,
+    wishlist: [],
+  },
+];
+
+export const getUserById = (id) => USERS.find((u) => u.id === id) || null;
+export const getOwners = () => USERS.filter((u) => u.role === ROLES.OWNER);
+
+export const mockUsers = USERS;
